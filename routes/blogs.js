@@ -5,7 +5,9 @@ const router = express.Router();
 
 router.post("/", async (req, res) => {
   try {
+    // Create new Blog from mongoose
     const newBlog = new Blog(req.body);
+    // Save this new blog in database
     await newBlog.save();
     res.status(201).json(newBlog);
   } catch (error) {
@@ -15,11 +17,14 @@ router.post("/", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
+    // Find all blogs, and sort it by newer
     const blogs = await Blog.find().sort({ createdAt: -1 });
 
+    // If there are no blogs, return a JSON object with a message and an empty array
     if (blogs.length === 0) {
       res.json({ message: "No blog posts found.", blogs: [] });
     } else {
+      // If blogs are found, return the blogs array as a JSON object
       res.json(blogs);
     }
   } catch (error) {
