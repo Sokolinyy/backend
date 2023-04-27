@@ -34,5 +34,5 @@ app.use("/create-blog", blogRoutes);
 
 // Listen for request
 app.listen(PORT, () => {
-  console.log(`Server is running on port 5000`);
+  console.log(`Server is running`);
 });
