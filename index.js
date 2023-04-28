@@ -1,12 +1,12 @@
 import express from "express";
 import cors from "cors";
-import aboutRoutes from "./routes/about.js";
-import blogRoutes from "./routes/blogs.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
+import blogsRoutes from "./routes/blogs.js";
+
 // Set the server port to the value from the environment variable or use the default 3000
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 // Create a new Express application
 const app = express();
@@ -28,9 +28,9 @@ app.use(cors());
 app.use(express.json());
 
 //Routes
-app.use("/", blogRoutes);
-app.use("/about", aboutRoutes);
-app.use("/create-blog", blogRoutes);
+app.use("/", blogsRoutes);
+app.use("/create-blog", blogsRoutes);
+app.use("/blog", blogsRoutes);
 
 // Listen for request
 app.listen(PORT, () => {
