@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 import blogsRoutes from "./routes/blogs.js";
 
 // Set the server port to the value from the environment variable or use the default 3000
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 
 // Create a new Express application
 const app = express();
